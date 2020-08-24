@@ -1,0 +1,17 @@
+All code was written in Java, so the prerequisite for running the program is that the Java environment needs to be installed on the machine.
+
+There are two ways to run the program:
+
+First way: run "Project.jar" from the command prompt window
+1. Open a command prompt window and find the directory for "Project.jar".
+2. Run the JAR file by using the Java-JAR command: "java -jar Project.jar".
+3. Input the total number of stacks and click the button "Reshuffling".
+4. The results will be displayed in the box below
+5. The detailed run log will be displayed on the command prompt window.
+
+Second way: run the program in Eclipse or IntelliJ IDEA
+1. Open Eclipse or IntelliJ IDEA and import the "Project".
+2. Execute the "Client" in the "presentation package" under "src".
+3. Input the total number of stacks and click the button "Reshuffling".
+4. The results will be displayed in the box below
+5. The detailed run log will be displayed in the console.
