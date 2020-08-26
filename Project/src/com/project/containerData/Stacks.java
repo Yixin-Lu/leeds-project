@@ -71,7 +71,7 @@ public class Stacks {
 	public static void main(String [] args) {
 		
 		Stacks s = new Stacks();
-		s.iniStacks(50);
+		s.iniStacks(25);
 		
 	}
 	
