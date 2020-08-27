@@ -10,6 +10,7 @@ package com.project.presentation;
 
 public class Client {
 
+	@SuppressWarnings("unused")
 	public static void main(String args[]) {
 		
 		MainWindow mainWindow = new MainWindow();

@@ -245,13 +245,11 @@ public class Reshuffling {
 					if (putUrgentStacks.size() > 0 && iniStacksDataForH2[k][problematicStacksTtoB.get(p)] == 1) {
 
 						if (iniStacksDataForH2[1][putUrgentStacks.get(0)] == 0) {
-							iniStacksDataForH2[1][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB
-									.get(p)];
+							iniStacksDataForH2[1][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB.get(p)];
 							iniStacksDataForH2[k][problematicStacksTtoB.get(p)] = 0;
 							cost++;
 						} else if (iniStacksDataForH2[0][putUrgentStacks.get(0)] == 0) {
-							iniStacksDataForH2[0][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB
-									.get(p)];
+							iniStacksDataForH2[0][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB.get(p)];
 							iniStacksDataForH2[k][problematicStacksTtoB.get(p)] = 0;
 							cost++;
 						} else {
@@ -333,6 +331,8 @@ public class Reshuffling {
 
 						putUrgentStacks.add(goodStacksForH2.get(0));
 						goodStacksForH2.remove(0);
+						p = 0;
+						k = -1;
 					}
 
 				} catch (Exception e) {
@@ -452,8 +452,7 @@ public class Reshuffling {
 
 		int cost2 = heuristicTwo();
 		int cost1 = heuristicOne();
-		String text = "The total cost of heuristic 1 is: " + cost1 + "\n" + "The total cost of heuristic 2 is: "
-				+ cost2;
+		String text = "The total cost of heuristic 1 is: " + cost1 + "\n" + "The total cost of heuristic 2 is: " + cost2;
 		System.out.println(text);
 
 		return text;
