@@ -132,6 +132,8 @@ public class Reshuffling {
 
 						putUrgentStacks.add(goodStacks.get(0));
 						goodStacks.remove(0);
+						p = 0;
+						k = -1;
 					}
 
 				} catch (Exception e) {
@@ -485,7 +487,7 @@ public class Reshuffling {
 	public static void main(String[] args) {
 
 		Reshuffling r = new Reshuffling();
-		r.result(8);
+		r.result(6);
 
 	}
 
