@@ -58,6 +58,7 @@ public class Util {
 	 */
 	public List<Integer> getProblematicStacksBtoT(){
 		
+		// Check layer 2 and layer 3.
 		for (int i = 0; i < iniStacksData[0].length; i++) {
 
 			if (iniStacksData[1][i] > iniStacksData[2][i]) {
@@ -65,6 +66,7 @@ public class Util {
 			}
 		}
 
+		// Check layer 1 and layer 2.
 		for (int i = 0; i < iniStacksData[0].length; i++) {
 
 			if (iniStacksData[0][i] > iniStacksData[1][i]) {
@@ -92,6 +94,7 @@ public class Util {
 	 */
 	public List<Integer> getProblematicStacksTtoB(){
 		
+		// Check layer 1 and layer 2.
 		for (int i = 0; i < iniStacksData[0].length; i++) {
 
 			if (iniStacksData[0][i] > iniStacksData[1][i]) {
@@ -99,6 +102,7 @@ public class Util {
 			}
 		}
 
+		// Check layer 2 and layer 3.
 		for (int i = 0; i < iniStacksData[0].length; i++) {
 
 			if (iniStacksData[1][i] > iniStacksData[2][i]) {

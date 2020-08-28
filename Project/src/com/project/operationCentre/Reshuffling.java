@@ -6,9 +6,9 @@ import java.util.List;
 import com.project.util.Util;
 
 /**
- * The Operation centre of reshuffling
- * Created on 15 Jul 2020
- * Revised on 12 Aug 2020
+ * The Operation centre of reshuffling Created on 15 Jul 2020 Revised on 12 Aug
+ * 2020
+ * 
  * @author Yixin Lu
  *
  */
@@ -35,10 +35,12 @@ public class Reshuffling {
 		for (int p = 0; p < problematicStacksBtoT.size(); p++) {
 
 			for (int k = 0; k < 3; k++) {
-				
+
 				// The operation of reshuffling.
 				try {
-					
+
+					// Check if it is urgent to move, and if it is, put it in array of putUrgentStacks, if not, put it in good stacks.
+					// Compute the cost.
 					if (putUrgentStacks.size() > 0 && iniStacksData[k][problematicStacksBtoT.get(p)] == 1) {
 
 						if (iniStacksData[1][putUrgentStacks.get(0)] == 0) {
@@ -70,15 +72,17 @@ public class Reshuffling {
 						}
 
 					}
-					
+
 				} catch (Exception e) {
 					System.out.println("Please try again.");
 				}
-				
+
 				// The operation of checking after reshuffling to reorganize good stacks,
 				// problematic stacks, and stacks that can only put urgent containers on them.
 				try {
 
+					// Check the problematic stacks, and if there is one that has been reorganized
+					// to become a good stack, move it to the good stacks.
 					if ((iniStacksData[0][problematicStacksBtoT.get(p)] == 0
 							&& iniStacksData[1][problematicStacksBtoT.get(p)] == 0
 							&& iniStacksData[2][problematicStacksBtoT.get(p)] == 0)
@@ -93,7 +97,9 @@ public class Reshuffling {
 						p = 0;
 						k = -1;
 					}
-
+					
+					// Check the problematic stacks, and if there is one that has been reorganized
+					// to become a stack that can only put urgent container, move it to the array of putUrgentStacks.
 					if ((iniStacksData[0][problematicStacksBtoT.get(p)] == 0
 							&& iniStacksData[1][problematicStacksBtoT.get(p)] == 0
 							&& iniStacksData[2][problematicStacksBtoT.get(p)] == 1)
@@ -110,11 +116,15 @@ public class Reshuffling {
 						k = -1;
 					}
 
+					// Check the good stacks, and if there is one that has been reorganized
+					// to become a full stack, remove it from the good stacks.
 					if (iniStacksData[0][goodStacks.get(0)] != 0 && iniStacksData[1][goodStacks.get(0)] != 0
 							&& iniStacksData[2][goodStacks.get(0)] != 0) {
 						goodStacks.remove(0);
 					}
 
+					// Check the good stacks, and if there is one that has been reorganized
+					// to become a stack that can only put urgent container, move it to the array of putUrgentStacks.
 					if ((iniStacksData[2][goodStacks.get(0)] == 1 && iniStacksData[1][goodStacks.get(0)] == 0
 							&& iniStacksData[0][goodStacks.get(0)] == 0)
 							|| (iniStacksData[2][goodStacks.get(0)] == 2 && iniStacksData[1][goodStacks.get(0)] == 1
@@ -241,15 +251,19 @@ public class Reshuffling {
 
 				// The operation of reshuffling.
 				try {
-					
+
+					// Check if it is urgent to move, and if it is, put it in array of putUrgentStacks, if not, put it in good stacks.
+					// Compute the cost.
 					if (putUrgentStacks.size() > 0 && iniStacksDataForH2[k][problematicStacksTtoB.get(p)] == 1) {
 
 						if (iniStacksDataForH2[1][putUrgentStacks.get(0)] == 0) {
-							iniStacksDataForH2[1][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB.get(p)];
+							iniStacksDataForH2[1][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB
+									.get(p)];
 							iniStacksDataForH2[k][problematicStacksTtoB.get(p)] = 0;
 							cost++;
 						} else if (iniStacksDataForH2[0][putUrgentStacks.get(0)] == 0) {
-							iniStacksDataForH2[0][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB.get(p)];
+							iniStacksDataForH2[0][putUrgentStacks.get(0)] = iniStacksDataForH2[k][problematicStacksTtoB
+									.get(p)];
 							iniStacksDataForH2[k][problematicStacksTtoB.get(p)] = 0;
 							cost++;
 						} else {
@@ -276,7 +290,7 @@ public class Reshuffling {
 						}
 
 					}
-					
+
 				} catch (Exception e) {
 					System.out.println("Please try again.");
 				}
@@ -285,6 +299,8 @@ public class Reshuffling {
 				// problematic stacks, and stacks that can only put urgent containers on them.
 				try {
 
+					// Check the problematic stacks, and if there is one that has been reorganized
+					// to become a good stack, move it to the good stacks.
 					if ((iniStacksDataForH2[0][problematicStacksTtoB.get(p)] == 0
 							&& iniStacksDataForH2[1][problematicStacksTtoB.get(p)] == 0
 							&& iniStacksDataForH2[2][problematicStacksTtoB.get(p)] == 0)
@@ -300,6 +316,8 @@ public class Reshuffling {
 						k = -1;
 					}
 
+					// Check the problematic stacks, and if there is one that has been reorganized
+					// to become a stack that can only put urgent container, move it to the array of putUrgentStacks.
 					if ((iniStacksDataForH2[0][problematicStacksTtoB.get(p)] == 0
 							&& iniStacksDataForH2[1][problematicStacksTtoB.get(p)] == 0
 							&& iniStacksDataForH2[2][problematicStacksTtoB.get(p)] == 1)
@@ -316,12 +334,16 @@ public class Reshuffling {
 						k = -1;
 					}
 
+					// Check the good stacks, and if there is one that has been reorganized
+					// to become a full stack, remove it from the good stacks.
 					if (iniStacksDataForH2[0][goodStacksForH2.get(0)] != 0
 							&& iniStacksDataForH2[1][goodStacksForH2.get(0)] != 0
 							&& iniStacksDataForH2[2][goodStacksForH2.get(0)] != 0) {
 						goodStacksForH2.remove(0);
 					}
 
+					// Check the good stacks, and if there is one that has been reorganized
+					// to become a stack that can only put urgent container, move it to the array of putUrgentStacks.
 					if ((iniStacksDataForH2[2][goodStacksForH2.get(0)] == 1
 							&& iniStacksDataForH2[1][goodStacksForH2.get(0)] == 0
 							&& iniStacksDataForH2[0][goodStacksForH2.get(0)] == 0)
@@ -338,7 +360,7 @@ public class Reshuffling {
 				} catch (Exception e) {
 					continue;
 				}
-				
+
 				System.out.println("The column of putUrgentStacks after reshuffling before reorganization is: ");
 				for (int i = 0; i < putUrgentStacks.size(); i++) {
 					System.out.println(putUrgentStacks.get(i));
@@ -452,7 +474,8 @@ public class Reshuffling {
 
 		int cost2 = heuristicTwo();
 		int cost1 = heuristicOne();
-		String text = "The total cost of heuristic 1 is: " + cost1 + "\n" + "The total cost of heuristic 2 is: " + cost2;
+		String text = "The total cost of heuristic 1 is: " + cost1 + "\n" + "The total cost of heuristic 2 is: "
+				+ cost2;
 		System.out.println(text);
 
 		return text;

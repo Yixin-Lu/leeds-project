@@ -46,6 +46,7 @@ public class MainWindow extends JFrame {
 		int screenWidth = screenSize.width;
 		int screenHeight = screenSize.height;
 		
+		// Main frame
 		frame = new JFrame("Container Reshuffling");
 		frame.setBounds(screenWidth / 4, screenHeight / 5, 600, 420);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
